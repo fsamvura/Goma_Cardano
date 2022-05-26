@@ -1,0 +1,50 @@
+{
+  "name": "ppbl-course-01",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ppbl course v1",
+  "author": "gimbalabs",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.10",
+    "@chakra-ui/gatsby-plugin": "^2.0.4",
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.7",
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@emurgo/cardano-serialization-lib-browser": "file:./src/cardano/serialization-lib/@emurgo/cardano-serialization-lib-browser",
+    "@fontsource/hammersmith-one": "^4.5.1",
+    "@fontsource/heebo": "^4.5.5",
+    "@fontsource/inconsolata": "^4.5.4",
+    "@fontsource/source-sans-pro": "^4.5.6",
+    "babel-plugin-styled-components": "^2.0.2",
+    "buffer": "^6.0.3",
+    "easy-peasy": "^5.0.4",
+    "formik": "^2.2.9",
+    "framer-motion": "^3.10.6",
+    "gatsby": "^4.2.0",
+    "gatsby-background-image": "^1.5.3",
+    "gatsby-link": "^4.3.0",
+    "gatsby-plugin-apollo": "^4.0.2",
+    "gatsby-plugin-image": "^2.3.0",
+    "gatsby-plugin-sharp": "^4.3.0",
+    "gatsby-plugin-styled-components": "^5.3.0",
+    "gatsby-react-router-scroll": "^5.11.0",
+    "gatsby-source-filesystem": "^4.3.0",
+    "gatsby-transformer-remark": "^5.10.2",
+    "gatsby-transformer-sharp": "^4.3.0",
+    "graphql": "^15.8.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.3.3"
+  }
+}

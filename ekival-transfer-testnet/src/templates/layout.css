@@ -1,0 +1,7 @@
+.colorLink {
+    color: blue;
+}
+
+.colorLink:hover {
+    color: red;
+}

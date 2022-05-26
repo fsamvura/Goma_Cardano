@@ -1,0 +1,27 @@
+.mdStyle{
+    color: blue
+}
+
+.mdStyle h1{
+    font-size: x-large;
+    font-weight: 900;
+    color: #b53d46;
+}
+
+.mdStyle h2{
+    font-size: large;
+    font-weight: bold;
+    padding-top: 1rem;
+}
+
+.mdStyle p, li{
+    padding-top: 0.5rem;
+}
+
+.mdStyle li {
+    margin-left: 2rem;
+}
+
+.mdStyle ul {
+    padding-left: 2rem;
+}
