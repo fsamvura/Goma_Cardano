@@ -1,0 +1,16 @@
+components:
+  language_switcher:
+    change_language: change language
+  theme_switcher:
+    theme: theme
+    change_theme: change theme
+pages:
+  index:
+    title: 'Hello'
+wallet:
+  pick: Please choose a wallet
+  connecting: connecting
+  available: Available
+  not_available: Not available
+  connect: Connect wallet
+  not_connected: Please connect your wallet to continue

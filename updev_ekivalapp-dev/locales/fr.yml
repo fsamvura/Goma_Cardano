@@ -1,0 +1,18 @@
+components:
+  language_switcher:
+    change_language: Modifier la langue
+  theme_switcher:
+    theme: theme
+    change_theme: Modifier le theme
+pages:
+  index:
+    title: bonjour
+wallet:
+  pick: Selectionnez un wallet
+  connecting: connexion
+  available: Disponible
+  not_available: Non disponible
+  connect: Connecter wallet
+  not_connected: Veuillez connecter votre wallet pour continuer
+# banners:
+#   welcome: bonjour, welcome to %{app_name}!

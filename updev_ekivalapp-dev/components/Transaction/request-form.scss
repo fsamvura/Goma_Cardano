@@ -1,0 +1,47 @@
+.btn-close {
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 10px 15px;
+  border-radius: 9999px;
+
+  &:hover {
+    color: #fff;
+    background-color: #333c4d;
+  }
+}
+
+.modal.max-w-md {
+  max-width: 45rem !important;
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+// Base Divider class
+.divider {
+  display: flex;
+
+  &:before,
+  &:after {
+    content: '';
+    flex: 1;
+  }
+}
+
+// Base line
+.line {
+  align-items: center;
+  margin: 1em -1em;
+
+  &:before,
+  &:after {
+    height: 1px;
+    margin: 0 1em;
+  }
+}
+
+.one-line {
+  &:before,
+  &:after {
+    background: #d1d5db;
+  }
+}
