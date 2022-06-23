@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { useWallet } from '~/stores/wallet'
-import { openModal } from '~/utils/ui-utils'
-import { transactions, notifications } from '@/features/transactions/Data'
+import { useMain } from '@/stores/main'
+import { useWallet } from '@/stores/wallet'
+import { notifications } from '@/features/transactions/Data'
 
 
 useHead({
@@ -12,6 +12,7 @@ useHead({
   charset: 'utf-8',
 })
 const wallet = useWallet()
+const store = useMain()
 const walletCookie = useCookie('wallet')
 
 const requestModalOpened = ref(false)
@@ -51,9 +52,9 @@ onMounted(async () => {
   if (walletCookie.value) {
     await wallet.connectToWallet(walletCookie.value)
     await wallet.refreshBalance()
-  } else {
   }
   await wallet.loadAvailableWallets()
+  await store.loadRegions()
 })
 
 </script>
@@ -145,11 +146,11 @@ onMounted(async () => {
           <div class="sticky top-20">
             <div class="relative flex justify-between py-4 px-2 pb-6 rounded-md text-gray-50 text-sm bg-primary">
               <div>
-                <p class="font-medium">Mes demandes</p>
+                <p class="font-medium">My offers</p>
                 <p class="text-lg font-semibold">5000$</p>
               </div>
               <div class="flex flex-col items-end">
-                <p class="font-medium">En cours</p>
+                <p class="font-medium">Pending</p>
                 <p class="text-lg font-semibold">3000$</p>
               </div>
               <div
@@ -173,7 +174,7 @@ onMounted(async () => {
                     <path
                       d="M7 0C4.796875 0 3 1.796875 3 4L3 22C3 24.203125 4.796875 26 7 26L14.71875 26C14.070313 25.429688 13.53125 24.753906 13.09375 24L7 24C5.894531 24 5 23.105469 5 22L5 4C5 2.894531 5.894531 2 7 2L14.28125 2C15.003906 2.183594 15 3.050781 15 3.9375L15 7C15 7.550781 15.449219 8 16 8L19 8C19.996094 8 21 8.003906 21 9L21 12.0625C21.699219 12.148438 22.367188 12.335938 23 12.59375L23 8C23 6.9375 22.027344 5.929688 20.28125 4.21875C20.039063 3.980469 19.777344 3.714844 19.53125 3.46875C19.285156 3.222656 19.019531 2.992188 18.78125 2.75C17.070313 1.003906 16.0625 0 15 0 Z M 7.8125 10C7.261719 10.050781 6.855469 10.542969 6.90625 11.09375C6.957031 11.644531 7.449219 12.050781 8 12L18 12C18.359375 12.003906 18.695313 11.816406 18.878906 11.503906C19.058594 11.191406 19.058594 10.808594 18.878906 10.496094C18.695313 10.183594 18.359375 9.996094 18 10L8 10C7.96875 10 7.9375 10 7.90625 10C7.875 10 7.84375 10 7.8125 10 Z M 8 14C7.449219 14 7 14.445313 7 15C7 15.554688 7.449219 16 8 16L13.09375 16C13.53125 15.246094 14.070313 14.570313 14.71875 14 Z M 20 14C16.6875 14 14 16.6875 14 20C14 23.3125 16.6875 26 20 26C23.3125 26 26 23.3125 26 20C26 16.6875 23.3125 14 20 14 Z M 19 16L21 16L21 19L24 19L24 21L21 21L21 24L19 24L19 21L16 21L16 19L19 19 Z M 8 18C7.449219 18 7 18.445313 7 19C7 19.554688 7.449219 20 8 20L12 20C12 19.308594 12.085938 18.640625 12.25 18Z" />
                   </svg>
-                  <p>Nouveau</p>
+                  <p>New</p>
                 </label>
               </div>
             </div>

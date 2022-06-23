@@ -49,28 +49,20 @@ export const distributeBounty = async (bUtxo, bDatum, { issuerAddress, contribut
     datums.add(bountyDatum)
     console.log("what is this bountyDatum?", bountyDatum)
 
-
-
     console.log("Do these addresses look right?", issuerAddress, contributorAddress, ekivalAddress)
 
     outputs.add(
       createTxOutput(
         Cardano.Instance.Address.from_bech32(contributorAddress),
-        assetsToValue([
-          { unit: "lovelace", quantity: `${fLovelace}` },
-
-        ])
+        assetsToValue([{ unit: "lovelace", quantity: `${fLovelace}` }])
       )
-    )
+    );
     outputs.add(
       createTxOutput(
         Cardano.Instance.Address.from_bech32(ekivalAddress),
-        assetsToValue([
-          { unit: "lovelace", quantity: `${eLovelace}` },
-
-        ])
+        assetsToValue([{ unit: "lovelace", quantity: `${eLovelace}` }])
       )
-    )
+    );
 
     console.log("we get this far", treasuryContractAddress)
 
@@ -117,6 +109,8 @@ export const distributeBounty = async (bUtxo, bDatum, { issuerAddress, contribut
   }
   catch (error) {
     console.log(error, "in lockingTx")
+    throw error;
+    
   }
 
 

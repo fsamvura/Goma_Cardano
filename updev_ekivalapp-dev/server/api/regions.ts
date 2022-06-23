@@ -28,18 +28,18 @@ export default defineEventHandler((event) => {
   const regions: Region[] = [
     {
         "id": 1,
-        "designation": "Goma",
+        "designation": "Toronto",
         "status": true,
         "createdAt": new Date(),
         "updatedAt": new Date(),
     },
     {
         "id": 2,
-        "designation": "Toronto",
+        "designation": "Goma",
         "status": true,
         "createdAt": new Date(),
         "updatedAt": new Date(),
-    },
+    }
   ]
 
   return regions

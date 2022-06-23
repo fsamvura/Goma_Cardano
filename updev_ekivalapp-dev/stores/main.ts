@@ -1,33 +1,42 @@
 import { defineStore } from 'pinia'
-import type { TransactionLock } from '@/features/transactions/Data'
+import type { Region } from '@/server/api/regions';
+import type { TransactionUtxo } from '@/features/transactions/Data'
 
 export interface IState {
-  orders: TransactionLock[]
+  orders: TransactionUtxo[]
+  regions:Region[]
+
 }
 
 export const useMain = defineStore('main', {
   state: (): IState => ({
     orders: [],
+    regions: [],
   }),
-  getters: {
-
-  },
+  getters: {},
   actions: {
-    setTransactionOrders(transactions: TransactionLock[]) {
+    setTransactionOrders(transactions: TransactionUtxo[]) {
       this.orders = transactions
     },
-    addTransactionOrder(transaction: TransactionLock) {
-      const idx = this.orders.findIndex(o => o.hash === transaction.hash)
+    addTransactionOrder(txUtxo: TransactionUtxo) {
+      const idx = this.orders.findIndex(o => o.transaction.hash === txUtxo.transaction.hash)
       if (idx === -1) {
-        this.orders.unshift(transaction)
+        this.orders.unshift(txUtxo)
       }
     },
-    removeTransactionOrder(transaction: TransactionLock) {
-      const index = this.orders.findIndex(o => o.hash === transaction.hash)
+    removeTransactionOrder(txUtxo: TransactionUtxo) {
+      const index = this.orders.findIndex(o => o.transaction.hash === txUtxo.transaction.hash)
       if (index > -1) {
         this.orders.splice(index, 1)
       }
     },
-
+    async loadRegions(): Promise<void> {
+      if (this.regions.length === 0) {
+        const { data } = await useFetch('/api/regions')
+        if (data.value.length) {
+          this.regions = data.value
+        }
+      }
+    }
   },
 })

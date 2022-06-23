@@ -5,8 +5,9 @@ import {
 } from '@vue/apollo-composable';
 import { ref } from 'vue'
 import { useMain } from '@/stores/main'
-import type { TransactionLock } from '@/features/transactions/Data'
-import { isLocked, toTransactionLock } from '@/features/transactions/Services'
+import { useWallet } from '~/stores/wallet'
+import type { TransactionLock, TransactionUtxo } from '@/features/transactions/Data'
+import { toTransactionLock } from '@/features/transactions/Services'
 
 const cache = new InMemoryCache()
 
@@ -41,31 +42,70 @@ const UTXOS_QUERY = gql`
   }
 `;
 
+const TXHASH_QUERY = gql`
+  query AddressFromUtxo($txhash: Hash32Hex!) {
+    transactions(where: { hash: { _eq: $txhash } }) {
+      inputs {
+        address
+      }
+    }
+  }
+`;
+
 export const useUtxosFromAddress = () => {
 
   const store = useMain()
+  const walletStore = useWallet()
 
   const loading = ref(false)
   // const transactions = ref<TransactionLock[]>([])
   
+  function getAddressesFromUtxo (txhash:string) {
+    return new Promise((resolve, reject) => {
+      provideApolloClient(apolloClient);
+      const response = useQuery(TXHASH_QUERY, {txhash:txhash})
+      response.onResult(({ data }) => resolve(data))
+      response.onError(error => reject(error))
+    })
+  }
+  
   async function loadData (address:string): Promise<void> {
     provideApolloClient(apolloClient);
     try {
+      
       loading.value = true
-      const response = useQuery(UTXOS_QUERY,{addr:address})
-      response.onResult((result) => {
-        const orders: TransactionLock[] = []
-        if (result) {
+      const { result, loading: fetching } = useQuery(UTXOS_QUERY,{addr:address})
+
+      watch(result, (data) => {
+        const orders: TransactionUtxo[] = []
+        if (data) {
           // @ts-ignore
-           result.data.utxos.forEach(async (tx) => {
-            const transaction = await toTransactionLock(tx.transaction) as TransactionLock
-            if (transaction) {
-              orders.push(transaction)
+          data.utxos.forEach(async (tx) => {
+            const tmpTx = {...tx}
+            // Need to improve typing
+            const txAddresses = await getAddressesFromUtxo(tmpTx.transaction.hash)
+            const transactionAddresses = txAddresses.transactions[0]?.inputs.map((input) => input.address);
+
+            // check whether the transaction is from the currently connected wallet
+            const contributorAddresses = transactionAddresses?.filter((address) => address === walletStore.walletAddress);
+
+            if (contributorAddresses.length > 0) {
+              tmpTx.contributorAddress = contributorAddresses[0]
+              const transaction = await toTransactionLock(tmpTx.transaction, store.regions) as TransactionLock
+              if (transaction) {
+                tmpTx.transaction = transaction
+                // store.addTransactionOrder(tmpTx)
+                orders.push(tmpTx)
+              }
             }
           })
           store.setTransactionOrders(orders)
         }
+        loading.value = false
       })
+      // response.onResult((result) => {
+
+      // })
     } catch (error) {
       console.log('error', error)
     } finally {
@@ -76,6 +116,6 @@ export const useUtxosFromAddress = () => {
   return {
     loading,
     loadData,
-    // transactions, 
+    getAddressesFromUtxo,
   }
 };

@@ -1,4 +1,5 @@
 import { object, string, number, InferType }from 'yup'
+import type { Nullable } from '~~/index'
 
 export const phoneSchema = object({
     countrycode: string().default('+243'),
@@ -24,7 +25,7 @@ export const sendSchema = object({
     // phone:phoneSchema,
 })
 
-export interface LockFundsData extends InferType<typeof sendSchema> {}
+export interface LockFundsData extends InferType<typeof sendSchema> { conversionRate: Nullable<string>}
 
 export type TransactionSate = 'locked' | 'accepted' | 'expired' | 'cancelled'
 
@@ -63,6 +64,16 @@ export interface TransactionLock{
     outputs:TransactionOutput[],
     metadata:TransactionMetadata
 }
+
+export interface TransactionUtxo{
+    address:Nullable<string>,
+    index:Nullable<number>,
+    tokens:string[],
+    value:Nullable<string>,
+    transaction:TransactionLock,
+    contributorAddress?: any
+}
+
 export interface Transaction{
     id:string,
     source:string,

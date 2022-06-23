@@ -46,8 +46,7 @@ export default defineNuxtConfig({
 
   // build
   build: {
-    transpile: ['@headlessui/vue', 'graphql'],
-    // transpile: ['@apollo/client/core','@headlessui/vue'],
+    transpile: ['@headlessui/vue', 'graphql', '@apollo/client'],
   },
   // alias: {
   //   '@apollo/client/core': '@apollo/client/core/core.cjs'
@@ -72,15 +71,15 @@ export default defineNuxtConfig({
 
   // vite plugins
   vite: {
-    // build: {
-    //   target: 'esnext'
-    // },
+    build: {
+      target: 'esnext'
+    },
     plugins: [
       wasm({
         // By default ALL `.wasm` imports will be transformed to WebAssembly ES module.
         // You can also set a filter (function or regex) to match files you want to transform.
         // Other files will fallback to Vite's default WASM loader (i.e. You need to call `initWasm()` for them).
-        // filter: /syntect_bg.wasm$/
+        // filter: /cardano_serialization_lib_bg.wasm$/
       }),
       // topLevelAwait(),
       UnpluginComponentsVite({

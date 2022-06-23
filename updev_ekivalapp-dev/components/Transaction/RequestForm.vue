@@ -10,9 +10,9 @@ import { useForm } from "vee-validate";
 import { useMain } from '@/stores/main'
 import { useWallet } from '~/stores/wallet'
 import { toLovelace } from "@/utils/converter";
-import type { Region } from '@/server/api/regions';
 import { showSwalMessage } from '@/utils/ui-utils'
-import type { LockFundsData, TransactionLock } from '@/features/transactions/Data'
+import { toTransactionLock } from '@/features/transactions/Services'
+import type { LockFundsData, TransactionLock, TransactionUtxo } from '@/features/transactions/Data'
 
 const emit = defineEmits(['close'])
 
@@ -36,6 +36,7 @@ const {
     contactName: null,
     contactEmail: null,
     contactPhone: null,
+    conversionRate: null,
   }
 });
 const swal = inject("$swal");
@@ -45,7 +46,6 @@ const wallet = useWallet()
 const transaction = useTransaction()
 
 const processing = ref(false)
-const regions = ref<Region[]>([])
 const paymentMethods = ref([
   {
     id: 'CASH',
@@ -58,20 +58,12 @@ const paymentMethods = ref([
   },
 ])
 
+const regions = computed(() => store.regions)
 const lovelaceAmount = computed(() => toLovelace(formValues.amountInAda as number))
 
 function resetAll(): void {
   emit('close')
   resetForm()
-}
-
-async function loadRegions(): Promise<void> {
-  if (regions.value.length === 0) {
-    const { data } = await useFetch('/api/regions')
-    if (data.value.length) {
-      regions.value = data.value
-    }
-  }
 }
 
 const lockFunds = async (formData: LockFundsData) => {
@@ -101,22 +93,29 @@ const submitForm = handleSubmit(async (formData) => {
     const { txHash: hash, metadata } = await lockFunds(formData)
 
     if (hash) {
-      const transaction: TransactionLock = {
+
+      const transaction = await toTransactionLock({
         hash,
         includedAt: (new Date()).toISOString(),
-        metadata,
+        metadata: [{ value: metadata }],
         inputs: [],
         outputs: []
+      }, regions.value) as TransactionLock
+
+      const payload: TransactionUtxo = {
+        address: null,
+        index: null,
+        tokens: [],
+        value: null,
+        transaction,
       }
-      console.log('transaction', transaction);
-      store.addTransactionOrder(transaction)
+
+      console.log('transaction', payload);
+      store.addTransactionOrder(payload)
       showSwalMessage('Your transaction have been locked to Ekival', `Hash: ${hash}`)
       resetAll()
     }
 
-    //testCommitingBounty()
-
-    //testDistributeBounty()
   } catch (error) {
     // @ts-ignore
     if (error && error.code === 2) {
@@ -129,11 +128,12 @@ const submitForm = handleSubmit(async (formData) => {
   }
 });
 
-watch(() => props.modalOpened, loadRegions)
+watch(() => props.modalOpened, () => store.loadRegions())
 
 watch(() => formValues.amount, (val) => {
   if (val && val > 0) {
     setFieldValue('amountInAda', Number.parseFloat((val / wallet.usdRate).toFixed(2)))
+    setFieldValue('conversionRate', wallet.usdRate.toFixed(2))
     return
   }
   setFieldValue('amountInAda', 0)

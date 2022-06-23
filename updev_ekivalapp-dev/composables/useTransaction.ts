@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 import { useWallet } from '~/stores/wallet'
-// import { useQuery } from '@vue/apollo-composable'
+import { useQuery } from '@vue/apollo-composable'
 import type { LockFundsData } from '@/features/transactions/Data'
 import { lockingTx } from "@/modules/cardano/locking-tx"
 
@@ -8,37 +8,6 @@ export const useTransaction = () => {
 
   const walletStore = useWallet()
   const provider = 'ekival'
-  
-  const loadTransactionOffers = () => {
-
-  const TRANSACTIONS_QUERY = gql`
-    query AddressTransactions($addr : String!) {
-      transactions(where: { metadata: { value: { provider: { _eq : $provider } } }}) {
-        hash
-        includedAt
-        inputs {
-          address
-        }
-        outputs {
-          address
-          value
-          tokens {
-            asset {
-              policyId
-              name
-            }
-            quantity
-          }
-        }
-        metadata {
-          key
-          value
-        }
-      }
-    }
-  `;
-    return useQuery(TRANSACTIONS_QUERY,{ provider });
-  }
   
   const getTxsFromAddress = (addr: string | null) => {
 
@@ -81,6 +50,7 @@ async function lockFundsInTreasury(data:LockFundsData) {
         utxosParam: walletStore.walletUtxos,
         amountInUsd: data.amount,
         amountInAda: data.amountInAda,
+        conversionRate: data.conversionRate,
         minAmount: data.minAmount,
         validityInDays: data.validityInDays,
         location: data.cityToSend,

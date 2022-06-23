@@ -2,7 +2,8 @@
 import { useMain } from '@/stores/main'
 import { useWallet } from '@/stores/wallet'
 import { showSwalMessage } from '@/utils/ui-utils'
-import type { TransactionLock } from '@/features/transactions/Data'
+import type { TransactionLock, TransactionUtxo } from '@/features/transactions/Data'
+import { treasuryContractAddress } from "@/modules/cardano/treasury-contract"
 
 definePageMeta({
   layout: 'page',
@@ -12,34 +13,53 @@ definePageMeta({
 const store = useMain()
 const wallet = useWallet()
 
-const transactions = computed(() => store.orders)
+const orders = computed(() => store.orders)
 const connecting = computed(() => wallet.connecting)
 const isWalletConnected = computed(() => wallet.isWalletConnected)
 
-// Use this hook to query the Bounty Contract address
+// Use this composable (hook) to query the Bounty Contract address
 const {
   loading,
   loadData,
 } = useUtxosFromAddress();
 
-const removeTransactionOrder = (transaction: TransactionLock) => {
-  store.removeTransactionOrder(transaction)
+const removeTransactionOrder = (order: TransactionUtxo) => {
+  store.removeTransactionOrder(order)
   showSwalMessage('Transaction cancelled', 'Your transaction has been cancelled', 'info')
+}
+
+const loadTransactions = () => {
+  // const tm = setTimeout(() => {
+  //   loadData(treasuryContractAddress)
+  //   clearTimeout(tm)
+  // }, 1000);
+  loadData(treasuryContractAddress)
+  setInterval(() => {
+    loadData(treasuryContractAddress)
+  }, 5000)
 }
 
 watch(isWalletConnected, (val) => {
   if (val) {
-    // loadTransactions()
+    loadTransactions()
   }
 })
 
+watch(orders, (val) => {
+  // const rawObject = JSON.parse(JSON.stringify(val))
+  console.log('rawObject', val)
+  // val.forEach(v => {
+  //   console.log('orders', v)
+  //   trans.value.push(v)
+  // })
+})
 watch(loading, (val) => {
   console.log('loading', val)
 })
 
 onMounted(() => {
-  // console.log('wallet.walletAddress', wallet.walletAddress)
-  loadData(wallet.walletAddress as string)
+  loadTransactions()
+  // trans.getTxsFromAddress(wallet.walletAddress as string)
 })
 
 </script>
@@ -77,13 +97,13 @@ onMounted(() => {
                 <th
                   class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                   Actions
-                  <font-awesome-icon v-if="loading" icon="spinner" size="lg" spin />
+                  <!-- <font-awesome-icon v-if="loading" icon="spinner" size="lg" spin /> -->
                   <!-- <RefreshIcon @click="loadTransactions" v-else class="ml-2" title="Refresh" /> -->
                 </th>
               </tr>
             </thead>
-            <tbody is="transition-group" name="fade-from-right">
-              <OrderItem v-for="transaction in transactions" :transaction="transaction" :key="transaction.hash"
+            <tbody>
+              <OrderItem v-for="order in orders" :order="order" :key="order.transaction.hash"
                 @cancelled="removeTransactionOrder" />
             </tbody>
           </table>

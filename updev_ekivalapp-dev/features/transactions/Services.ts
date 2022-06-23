@@ -4,14 +4,15 @@ import { distributeBounty } from '@/modules/cardano/bounty-contract'
 import {commitToBounty} from '@/modules/cardano/treasury-contract'
 import {fromBech32, fromStr, addFloat, adaToUsdConversionRate} from '@/utils/converter'
 import { LockFundsData, TransactionInput, TransactionLock, TransactionOutput } from './Data'
+import type { Region } from '@/server/api/regions'
 
 export const isLocked = (trans:TransactionLock) => trans.metadata.state == undefined || trans.metadata.state === 'locked'
 
-export async function toTransactionLock (tx:any) 
+export async function toTransactionLock (tx:any, regions: Region[]) 
 {
     if (tx && tx.metadata[0]) {
         const metadata = tx.metadata[0].value
-    
+        const location = Number.parseInt(metadata.location)
         const transaction: TransactionLock = {
             hash: tx.hash,
             includedAt: tx.includedAt,
@@ -23,10 +24,10 @@ export async function toTransactionLock (tx:any)
               deposit: metadata.deposit,
               minimum: metadata.minimum,
               depositInUsd: metadata.depositInUsd,
-              location: metadata.location,
+            //   location: metadata.location,
               provider: metadata.provider,
               paymentMethod: metadata.paymentMethod,
-            //   location: regions.find(x => x._id == tx.metadata[0].value.location)?.designation ?? 'Inconnu',
+              location: regions.find(r => r.id === location)?.designation ?? 'Unknown',
               validityInDays: metadata.validityInDays,
               contactEmail: metadata.contactEmail,
               contactName: metadata.contactName,
