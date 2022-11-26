@@ -1,0 +1,59 @@
+cabal-version:      2.4
+name:               always-succeeds-plutus-v2
+version:            0.1.0.0
+description:        For learning how Plutus V2 transactions work.
+license:            Apache-2.0
+author:             Gimbalabs
+maintainer:         gimbalabs.com
+build-type:         Simple
+
+Flag unexpected_thunks
+  Description:   Turn on unexpected thunks checks
+  Default:       False
+
+common base
+  build-depends: base >= 4.14 && < 4.15
+
+common project-config
+  default-language:     Haskell2010
+
+  default-extensions:   NoImplicitPrelude
+                        OverloadedStrings
+
+  ghc-options:          -Wall
+                        -Wcompat
+                        -Wincomplete-record-updates
+                        -Wpartial-fields
+                        -Wredundant-constraints
+                        -Wincomplete-uni-patterns
+                        -Wmissing-export-lists
+                        -Wpartial-fields
+                        -Wmissing-deriving-strategies
+                        -Wunused-packages
+
+common maybe-Win32
+  if os(windows)
+     build-depends:    Win32
+
+library
+  import:               base, project-config
+                      , maybe-Win32
+
+  if flag(unexpected_thunks)
+    cpp-options: -DUNEXPECTED_THUNKS
+
+  hs-source-dirs:       src
+
+  exposed-modules:      AlwaysSucceedsValidator
+                        AlwaysSucceedsCompiler
+
+  build-depends:        bytestring
+                      , cardano-api
+                      , plutus-ledger-api
+                      , plutus-tx
+                      , plutus-tx-plugin
+                      , plutus-script-utils
+                      , serialise
+                      , aeson
+
+  ghc-options: -fobject-code -fno-ignore-interface-pragmas -fno-omit-interface-pragmas

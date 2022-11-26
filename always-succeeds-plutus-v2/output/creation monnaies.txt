@@ -1,0 +1,72 @@
+Créer les monnaies à échanger
+
+testnet="--testnet-magic 1"
+monnaie1=$(echo -n "tGoma" | xxd -ps | tr -d '\n')
+monnaie2=$(echo -n "tAbidjan" | xxd -ps | tr -d '\n')
+quantite="10000000"
+envoi="0"
+
+#voir le niveau de synchronisation
+cardano-cli query tip $testnet
+
+#Générer des clés et addresses de paiement
+cardano-cli address key-gen --verification-key-file payment.vkey --signing-key-file payment.skey
+cardano-cli address build --payment-verification-key-file payment.vkey --out-file payment.addr $testnet
+address=$(cat payment.addr)
+
+#Créer les répertoires de la monnaie et de la police
+
+mkdir rmonnaie
+mkdir rpolice
+
+
+#Obtenir les paramètres du réseau (régulièrement)
+cardano-cli query protocol-parameters $testnet --out-file protocol.json
+
+
+#Créer les clés de police monétaire
+cardano-cli address key-gen \
+    --verification-key-file rpolice/policy.vkey \
+    --signing-key-file rpolice/policy.skey
+    
+#Initier la police monétaire   
+touch rpolice/policy.script && echo "" > rpolice/policy.script
+
+#Peupler la police
+echo "{" >> rpolice/policy.script 
+echo "  \"keyHash\": \"$(cardano-cli address key-hash --payment-verification-key-file rpolice/policy.vkey)\"," >> rpolice/policy.script 
+echo "  \"type\": \"sig\"" >> rpolice/policy.script 
+echo "}" >> rpolice/policy.script
+
+
+#Chaque police a un identifiant
+cardano-cli transaction policyid --script-file ./rpolice/policy.script > rpolice/policyID
+
+#Fournir les sources de paiement pour la création de la monnaie
+
+txhash="d4dafc7bf86fca7034f8c7080d868c40580f556e4a51f02a88bbf362dfbcbfa1"
+txix="0"
+fonds="10000000000"
+policyid=$(cat rpolice/policyID)
+frais="300000"
+
+#Créons la transaction pour évaluer les frais
+cardano-cli transaction build-raw --fee $frais --tx-in $txhash#$txix --tx-out $address+$envoi+"$quantite $policyid.$monnaie1 + $quantite $policyid.$monnaie2"  --mint "$quantite $policyid.$monnaie1 + $quantite $policyid.$monnaie2" --minting-script-file rpolice/policy.script --out-file monnaie.raw
+ 
+#Calcul des frais
+frais=$(cardano-cli transaction calculate-min-fee --tx-body-file monnaie.raw --tx-in-count 1 --tx-out-count 1 --witness-count 1 $testnet --protocol-params-file protocol.json | cut -d " " -f1)
+
+#Calcul du reste
+envoi=$(expr $fonds - $frais)
+
+#Créer la transaction proprement dite
+cardano-cli transaction build-raw --fee $frais --tx-in $txhash#$txix --tx-out $address+$envoi+"$quantite $policyid.$monnaie1 + $quantite $policyid.$monnaie2"  --mint "$quantite $policyid.$monnaie1 + $quantite $policyid.$monnaie2" --minting-script-file rpolice/policy.script --out-file monnaie1.raw
+
+#Signer la transaction
+cardano-cli transaction sign --signing-key-file payment.skey $testnet --signing-key-file rpolice/policy.skey   --tx-body-file monnaie1.raw --out-file monnaie1.signed
+
+
+#Soumettre la transaction
+cardano-cli transaction submit --tx-file monnaie1.signed $testnet
+
+
