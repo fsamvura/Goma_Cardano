@@ -27,4 +27,4 @@ writeValidator :: FilePath -> Plutus.V2.Ledger.Api.Validator -> IO (Either (File
 writeValidator file = writeFileTextEnvelope @(PlutusScript PlutusScriptV2) file Nothing . PlutusScriptSerialised . SBS.toShort . LBS.toStrict . serialise . Plutus.V2.Ledger.Api.unValidatorScript
 
 writeAlwaysSucceedsScript :: IO (Either (FileError ()) ())
-writeAlwaysSucceedsScript = writeValidator "output/tjrs-succes-plutus-red.plutus" AlwaysSucceedsValidator.validator
+writeAlwaysSucceedsScript = writeValidator "output/egal_dat_red.plutus" AlwaysSucceedsValidator.validator

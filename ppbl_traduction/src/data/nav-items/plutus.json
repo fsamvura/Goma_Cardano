@@ -1,0 +1,20 @@
+{
+    "children": [
+      {
+          "label": "On-chain essentials",
+          "href": "#"
+      },
+      {
+          "label": "Off-chain essentials",
+          "href": "#"
+      },
+      {
+          "label": "Off-chain essentials",
+          "href": "#"
+      },
+      {
+          "label": "Intro to testing and optimization",
+          "href": "#"
+      }
+    ]
+  }

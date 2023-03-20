@@ -55,5 +55,6 @@ library
                       , plutus-script-utils
                       , serialise
                       , aeson
+                      , plutus-ledger
 
   ghc-options: -fobject-code -fno-ignore-interface-pragmas -fno-omit-interface-pragmas

@@ -1,0 +1,329 @@
+{
+  "modules": [
+    {
+      "number": 100,
+      "title": "Memulai",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "100.1",
+          "slt": "Saya bisa menghubungkan dompet Cardano ke testnet pre-production."
+        },
+        {
+          "id": "100.2",
+          "slt": "Saya bisa mendapatkan tAda gratis pada testnet pre-production."
+        },
+        { "id": "100.3", "slt": "Saya tahu cara menyimpan kunci dengan aman." },
+        { "id": "100.4", "slt": "Saya dapat mencetak Token Kontributor PPBL." }
+      ]
+    },
+    {
+      "number": 101,
+      "title": "Tulis Smart Contract Pertama Anda",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "101.1",
+          "slt": "Saya dapat mengkompilasi validator plutus ke Untyped Plutus Core (UPLC)."
+        },
+        {
+          "id": "101.2",
+          "slt": "Saya memahami peran UPLC dalam aplikasi terdesentralisasi di Cardano."
+        },
+        {
+          "id": "101.3",
+          "slt": "Saya dapat menggunakan Demeter.run untuk mengkompilasi skrip .plutus."
+        },
+        {
+          "id": "101.4",
+          "slt": "Saya dapat mengatur lingkungan pengembangan Plutus lokal menggunakan nix shell, dan menggunakannya untuk mengkompilasi skrip `.plutus`."
+        },
+        {
+          "id": "101.5",
+          "slt": "Saya bisa menulis kontrak yang selalu berhasil di Aiken."
+        }
+      ]
+    },
+    {
+      "number": 102,
+      "title": "Bangun Transaksi Pertama Anda",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "102.1",
+          "slt": "Saya dapat melakukan kueri ke blockchain menggunakan cardano-cli."
+        },
+        {
+          "id": "102.2",
+          "slt": "Saya dapat membuat dompet menggunakan cardano-cli."
+        },
+        {
+          "id": "102.3",
+          "slt": "Saya dapat membuat transaksi sederhana menggunakan cardano-cli."
+        },
+        {
+          "id": "102.4",
+          "slt": "Saya dapat mengunci dana di alamat kontrak menggunakan cardano-cli."
+        },
+        {
+          "id": "102.5",
+          "slt": "Saya dapat membuka kunci dana dari alamat kontrak menggunakan cardano-cli."
+        },
+        {
+          "id": "102.6",
+          "slt": "Saya dapat menggunakan skrip bash untuk membangun transaksi yang dapat digunakan kembali."
+        }
+      ]
+    },
+    {
+      "number": 103,
+      "title": "Apa yang Akan Anda Pelajari dalam Kursus Ini",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "103.1",
+          "slt": "Saya dapat memberikan kontribusi ke proyek sumber terbuka menggunakan git."
+        },
+        {
+          "id": "103.2",
+          "slt": "Saya dapat menggunakan kembali kode dari proyek yang sudah ada."
+        },
+        {
+          "id": "103.3",
+          "slt": "Saya dapat mengajukan pertanyaan di Cardano Stack Exchange."
+        }
+      ]
+    },
+    {
+      "number": 201,
+      "title": "Membuat Template Front End Dapp",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "201.1",
+          "slt": "Saya dapat menjalankan proyek Next JS di perangkat lokal saya."
+        },
+        {
+          "id": "201.2",
+          "slt": "Saya dapat menggunakan API Mesh untuk berinteraksi dengan dompet peramban seperti Eternl atau Nami."
+        },
+        {
+          "id": "201.3",
+          "slt": "Saya dapat membuat aplikasi web yang merender secara berbeda jika pengguna memegang token Cardano."
+        },
+        {
+          "id": "201.4",
+          "slt": "Saya dapat melakukan kueri pada blockchain dengan GraphQL dan Koios."
+        },
+        {
+          "id": "201.5",
+          "slt": "Saya dapat menggunakan git untuk membuat feature branch dan mengirimkan merge request."
+        }
+      ]
+    },
+    {
+      "number": 202,
+      "title": "Tiga Cara untuk Membuat Token",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "202.1",
+          "slt": "Saya dapat mencetak aset asli Cardano menggunakan API Mesh."
+        },
+        {
+          "id": "202.2",
+          "slt": "Saya dapat mencetak aset asli dengan skrip asli menggunakan cardano-cli."
+        },
+        {
+          "id": "202.3",
+          "slt": "Saya dapat mencetak aset asli menggunakan skrip Plutus Minting."
+        }
+      ]
+    },
+    {
+      "number": 203,
+      "title": "Tiga Cara untuk Mencetak NFT",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "203.1",
+          "slt": "Saya dapat menambahkan metadata ke transaksi Cardano."
+        },
+        {
+          "id": "203.2",
+          "slt": "Saya dapat membuat NFT Cardano yang sesuai dengan standar CIP-25."
+        },
+        {
+          "id": "203.3",
+          "slt": "Saya tahu di mana saya bisa mempelajari lebih lanjut tentang Cardano Improvement Proposals."
+        },
+        {
+          "id": "203.4",
+          "slt": "Saya dapat berkontribusi pada standar baru dalam ekosistem pengembangan ini."
+        }
+      ]
+    },
+    {
+      "number": 204,
+      "title": "Proyek Faucet PPBL",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "204.1",
+          "slt": "Saya dapat menggunakan contoh skrip Plutus dengan parameter khusus."
+        },
+        {
+          "id": "204.2",
+          "slt": "Saya dapat berkontribusi pada aplikasi yang headless dan terdesentralisasi."
+        }
+      ]
+    },
+    {
+      "number": 301,
+      "title": "Menulis dan Menggunakan Validator Plutus",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "301.1",
+          "slt": "Saya bisa menulis validator Plutus Spending."
+        },
+        {
+          "id": "301.2",
+          "slt": "Saya tahu cukup banyak tentang haskell untuk memahami beberapa pola desain validator yang umum."
+        },
+        {
+          "id": "301.3",
+          "slt": "Saya memahami bagaimana Datum digunakan dalam validator Plutus."
+        },
+        {
+          "id": "301.4",
+          "slt": "Saya memahami bagaimana Redeemer digunakan dalam validator Plutus."
+        }
+      ]
+    },
+    {
+      "number": 302,
+      "title": "Hal-hal Penting Pada On-Chain: Plutus",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "302.1",
+          "slt": "Saya dapat merencanakan dan mengimplementasikan kontrak Plutus saya sendiri."
+        },
+        {
+          "id": "302.2",
+          "slt": "Saya dapat membuat, memperbarui, dan memelihara proyek Plutus."
+        },
+        {
+          "id": "302.3",
+          "slt": "Saya dapat menggunakan datum, penebus, dan logika khusus secara efektif."
+        },
+        {
+          "id": "302.4",
+          "slt": "Saya dapat mengonversi Datum and Redeemer ke file JSON."
+        },
+        {
+          "id": "302.5",
+          "slt": "Saya mengerti cara kerja waktu pada Plutus (POSIXTime) dan Ledger (Slot Number)."
+        },
+        {
+          "id": "302.6",
+          "slt": "Saya dapat menganalisis kinerja validator Plutus dengan melihat ukuran, memori, dan biaya eksekusi CPU-nya."
+        },
+        {
+          "id": "302.7",
+          "slt": "Saya dapat menggunakan skrip referensi Plutus."
+        },
+        {
+          "id": "302.8",
+          "slt": "Saya dapat menjalankan dokumentasi Plutus secara lokal dan menulis komentar dengan benar untuk menghasilkan haddock untuk proyek baru."
+        },
+        {
+          "id": "302.9",
+          "slt": "Saya dapat mengamankan Datum, Redeemer, dan Parameter Kontrak untuk SC dan proyek saya."
+        }
+      ]
+    },
+    {
+      "number": 303,
+      "title": "Hal-hal Penting Pada On-Chain: Aiken",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "303.1",
+          "slt": "Saya dapat menulis skrip Plutus menggunakan Aiken."
+        },
+        {
+          "id": "303.2",
+          "slt": "Saya dapat mengimplementasikan logika bisnis Plutus di Aiken."
+        }
+      ]
+    },
+    {
+      "number": 304,
+      "title": "Hal-hal Penting Pada Off-Chain: Transaksi, UI, dan Kueri",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "304.1",
+          "slt": "Saya dapat membuat kueri terprogram dari transaksi historis menggunakan Koios dan GraphQL."
+        },
+        {
+          "id": "304.2",
+          "slt": "Saya dapat membuat antarmuka pengguna yang memungkinkan pengguna untuk berinteraksi dengan blockchain dengan membentuk transaksi yang sesuai untuk beberapa interaksi."
+        },
+        {
+          "id": "304.3",
+          "slt": "Saya dapat menggunakan Kupo untuk membuat indeks data on-chain."
+        }
+      ]
+    },
+    {
+      "number": 305,
+      "title": "Pengantar Pengujian dan Pengoptimalan",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        {
+          "id": "305.1",
+          "slt": "Saya dapat menjalankan pengujian menggunakan shell, nix, dan cabal."
+        },
+        {
+          "id": "305.2",
+          "slt": "Saya dapat mengekspresikan properti di QuickCheck"
+        },
+        {
+          "id": "305.3",
+          "slt": "Saya bisa menjelaskan bagaimana CI memberikan nilai tambah bagi tim proyek."
+        },
+        {
+          "id": "305.4",
+          "slt": "Saya dapat menjelaskan hasil verifikasi dan audit."
+        },
+        {
+          "id": "305.5",
+          "slt": "Saya dapat menguji skrip validasi yang ditulis dalam Aiken."
+        }
+      ]
+    },
+    {
+      "number": 401,
+      "title": "Memperkenalkan Perbendaharaan dan Escrow Proyek Gimbal",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": []
+    }
+  ]
+}

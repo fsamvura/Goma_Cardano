@@ -1,0 +1,52 @@
+{
+    "events": [
+        {
+            "date": "2023-03-15",
+            "title": "Welcome to PPBL 2023",
+            "regLink": "",
+            "recordingLink": "",
+            "links": [""],
+            "description": "Kicking off PPBL 2023"
+        },
+        {
+            "date": "2023-03-16",
+            "title": "Lesson 100.3: Best Practices for Wallet Security",
+            "regLink": "",
+            "recordingLink": "",
+            "links": [""],
+            "description": "Best practices and open discussion"
+        },
+        {
+            "date": "2023-03-17",
+            "title": "Smart Contract Gladiator: Give Unto Caesar",
+            "regLink": "",
+            "recordingLink": "",
+            "links": [""],
+            "description": "..."
+        },
+        {
+            "date": "2023-03-22",
+            "title": "Pathways to Plutus",
+            "regLink": "",
+            "recordingLink": "",
+            "links": [""],
+            "description": "Kicking off PPBL 2023"
+        },
+        {
+            "date": "2023-03-23",
+            "title": "More Pathways to Plutus",
+            "regLink": "",
+            "recordingLink": "",
+            "links": [""],
+            "description": "Kicking off PPBL 2023"
+        },
+        {
+            "date": "2023-03-24",
+            "title": "Smart Contract Gladiator: Join the Senate!",
+            "regLink": "",
+            "recordingLink": "",
+            "links": [""],
+            "description": "..."
+        }
+    ]
+}

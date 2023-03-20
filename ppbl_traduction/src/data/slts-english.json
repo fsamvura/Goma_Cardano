@@ -1,0 +1,563 @@
+{
+  "modules": [
+    {
+      "number": 100,
+      "title": "Getting Started",
+      "releaseDate": "2023-03-13",
+      "updatedDate": "2023-03-13",
+      "slts": [
+        { "id": "100.1", "slt": "I can connect a Cardano wallet to the pre-production test network." },
+        { "id": "100.2", "slt": "I can get free tAda on the pre-production testnet." },
+        { "id": "100.3", "slt": "I know how to safely store my keys." },
+        { "id": "100.4", "slt": "I can mint a PPBL Contributor Token." }
+      ], 
+      "lessons": [
+        {
+          "slug": "slts",
+          "name": "Module 100 Overview + SLTs",
+          "video": ""
+        },
+        {
+          "slug": "1001",
+          "name": "Lesson 1: Connect a Wallet to Preprod",
+          "video": ""
+        },
+        {
+          "slug": "1002",
+          "name": "Lesson 2: Get tAda from PreProd Faucet",
+          "video": ""
+        },
+        {
+          "slug": "1003",
+          "name": "Lesson 3: Storing your private keys",
+          "video": ""
+        },
+        {
+          "slug": "1004",
+          "name": "Lesson 4: Get your PPBL 2023 Token",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 101,
+      "title": "Write Your First Smart Contract",
+      "releaseDate": "2023-03-20",
+      "updatedDate": "2023-03-20",
+      "slts": [
+        { "id": "101.1", "slt": "I can compile a plutus validator to Untyped Plutus Core (UPLC)." },
+        { "id": "101.2", "slt": "I understand the role that UPLC plays in a decentralized application on Cardano." },
+        { "id": "101.3", "slt": "I can use Demeter.run to compile a .plutus script." },
+        {
+          "id": "101.4",
+          "slt": "I can set up a local Plutus development environment using nix shell, and use it to compile a .plutus script."
+        },
+        { "id": "101.5", "slt": "I can write an \"always succeeds\" validator script in Aiken." }
+      ],
+      "lessons": [
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "1001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "1002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "1003",
+          "name": "Lesson 3",
+          "video": ""
+        },
+        {
+          "slug": "1004",
+          "name": "Lesson 4",
+          "video": ""
+        },
+        {
+          "slug": "example",
+          "name": "MDX Example",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 102,
+      "title": "Build Your First Transactions",
+      "releaseDate": "2023-03-27",
+      "updatedDate": "2023-03-27",
+      "slts": [
+        { "id": "102.1", "slt": "I can query the blockchain using cardano-cli." },
+        { "id": "102.2", "slt": "I can create a wallet using cardano-cli." },
+        { "id": "102.3", "slt": "I can build a simple transaction using cardano-cli." },
+        { "id": "102.4", "slt": "I can lock funds at a contract address using cardano-cli." },
+        { "id": "102.5", "slt": "I can unlock funds from a contract address using cardano-cli." },
+        { "id": "102.6", "slt": "I can use bash scripts to build re-usable transactions." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "1001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "1002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "1003",
+          "name": "Lesson 3",
+          "video": ""
+        },
+        {
+          "slug": "1004",
+          "name": "Lesson 4",
+          "video": ""
+        },
+        {
+          "slug": "1005",
+          "name": "Lesson 5",
+          "video": ""
+        },
+        {
+          "slug": "1006",
+          "name": "Lesson 6",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 103,
+      "title": "What You Will Learn in This Course",
+      "releaseDate": "2023-03-27",
+      "updatedDate": "2023-03-27",
+      "slts": [
+        { "id": "103.1", "slt": "I can make a contribution to an open source project using git." },
+        { "id": "103.2", "slt": "I can re-use code from existing projects." },
+        { "id": "103.3", "slt": "I can ask questions on Cardano Stack Exchange." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "1001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "1002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "1003",
+          "name": "Lesson 3",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 201,
+      "title": "Build a Front End Dapp Template",
+      "releaseDate": "2023-04-03",
+      "updatedDate": "2023-04-03",
+      "slts": [
+        { "id": "201.1", "slt": "I can run a Next JS project on my local device." },
+        { "id": "201.2", "slt": "I can use Mesh APIs to interact with a browser-wallet like Eternl or Nami." },
+        { "id": "201.3", "slt": "I can create a web app that renders differently if a user holds a Cardano token." },
+        { "id": "201.4", "slt": "I can query the blockchain with GraphQL and Koios." },
+        { "id": "201.5", "slt": "I can use git to create a feature branch and submit a merge request." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "2001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "2002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "2003",
+          "name": "Lesson 3",
+          "video": ""
+        },
+        {
+          "slug": "2004",
+          "name": "Lesson 4",
+          "video": ""
+        },
+        {
+          "slug": "2005",
+          "name": "Lesson 5",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 202,
+      "title": "Three Ways to Mint a Token",
+      "releaseDate": "2023-04-10",
+      "updatedDate": "2023-04-10",
+      "slts": [
+        { "id": "202.1", "slt": "I can mint a Cardano native asset using Mesh APIs." },
+        { "id": "202.2", "slt": "I can mint native assets with native scripts using cardano-cli." },
+        { "id": "202.3", "slt": "I can mint a native asset using a Plutus Minting script." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "2001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "2002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "2003",
+          "name": "Lesson 3",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 203,
+      "title": "Three Ways to Mint an NFT",
+      "releaseDate": "2023-04-17",
+      "updatedDate": "2023-04-17",
+      "slts": [
+        { "id": "203.1", "slt": "I can add metadata to a Cardano transaction." },
+        { "id": "203.2", "slt": "I can create a Cardano NFT that adheres to CIP-25 standards." },
+        { "id": "203.3", "slt": "I know where to learn more about Cardano Improvement Proposals." },
+        { "id": "203.4", "slt": "I can contribute to new standards in this development ecosystem." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "2001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "2002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "2003",
+          "name": "Lesson 3",
+          "video": ""
+        },
+        {
+          "slug": "2004",
+          "name": "Lesson 4",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 204,
+      "title": "PPBL Faucet Project",
+      "releaseDate": "2023-04-24",
+      "updatedDate": "2023-04-24",
+      "slts": [
+        { "id": "204.1", "slt": "I can deploy an instance of a Plutus script with custom parameters" },
+        { "id": "204.2", "slt": "I can contribute to a headless, decentralized application." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "2001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "2002",
+          "name": "Lesson 2",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 301,
+      "title": "Writing and Using Plutus Validators",
+      "releaseDate": "2023-05-01",
+      "updatedDate": "2023-05-01",
+      "slts": [
+        { "id": "301.1", "slt": "I can write a Plutus Spending validator." },
+        { "id": "301.2", "slt": "I know enough haskell to understand some common validator design patterns." },
+        { "id": "301.3", "slt": "I understand how Datum is used in Plutus validators." },
+        { "id": "301.4", "slt": "I understand how Redeemers are used in Plutus validators." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "3001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "3002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "3003",
+          "name": "Lesson 3",
+          "video": ""
+        },
+        {
+          "slug": "3004",
+          "name": "Lesson 4",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 302,
+      "title": "On-Chain Essentials: Plutus",
+      "releaseDate": "2023-05-08",
+      "updatedDate": "2023-05-08",
+      "slts": [
+        { "id": "302.1", "slt": "I can plan and implement my own Plutus contracts" },
+        { "id": "302.2", "slt": "I can create, update and maintain a Plutus project." },
+        { "id": "302.3", "slt": "I can use datum, redeemer and custom logic effectively." },
+        { "id": "302.4", "slt": "I can convert Datums and Redeemers to JSON files." },
+        { "id": "302.5", "slt": "I undstand how time works on Plutus (POSIXTime) and Ledger (Slot Number)." },
+        {
+          "id": "302.6",
+          "slt": "I can analyze the performance of a Plutus validator by viewing its size, memory and CPU exection costs."
+        },
+        { "id": "302.7", "slt": "I can deploy a Plutus reference script." },
+        {
+          "id": "302.8",
+          "slt": "I can run Plutus documentation locally and write comments properly in order to generate haddock for a new project."
+        },
+        { "id": "302.9", "slt": "I can secure Datum, Redeemer and Contract Parameters for my SC and project." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "3001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "3002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "3003",
+          "name": "Lesson 3",
+          "video": ""
+        },
+        {
+          "slug": "3004",
+          "name": "Lesson 4",
+          "video": ""
+        },
+        {
+          "slug": "3005",
+          "name": "Lesson 5",
+          "video": ""
+        },
+        {
+          "slug": "3006",
+          "name": "Lesson 6",
+          "video": ""
+        },
+        {
+          "slug": "3007",
+          "name": "Lesson 7",
+          "video": ""
+        },
+        {
+          "slug": "3008",
+          "name": "Lesson 8",
+          "video": ""
+        },
+        {
+          "slug": "3009",
+          "name": "Lesson 9",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 303,
+      "title": "On-Chain Essentials: Aiken",
+      "releaseDate": "2023-05-08",
+      "updatedDate": "2023-05-08",
+      "slts": [
+        { "id": "303.1", "slt": "I can write a Plutus script using Aiken." },
+        { "id": "303.2", "slt": "I can implement Plutus business logic in Aiken." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "3001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "3002",
+          "name": "Lesson 2",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 304,
+      "title": "Off-Chain Essentials: Transactions, UI, and Queries",
+      "releaseDate": "2023-05-08",
+      "updatedDate": "2023-05-08",
+      "slts": [
+        {
+          "id": "304.1",
+          "slt": "I can make programmatic queries of historical transactions using Koios and GraphQL."
+        },
+        {
+          "id": "304.2",
+          "slt": "I can create user interfaces which enable the user to interact with the blockchain by forming appropriate transactions for some interaction."
+        },
+        { "id": "304.3", "slt": "I can use Kupo to create an index of on-chain data." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "3001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "3002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "3003",
+          "name": "Lesson 3",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 305,
+      "title": "Intro to Testing and Optimization",
+      "releaseDate": "2023-05-15",
+      "updatedDate": "2023-05-15",
+      "slts": [
+        { "id": "305.1", "slt": "I can run tests using shell, nix and cabal." },
+        { "id": "305.2", "slt": "I can express a property in QuickCheck" },
+        { "id": "305.3", "slt": "I can explain how CI adds value to a project team." },
+        { "id": "305.4", "slt": "I can explain the outcomes of verification and audit." },
+        { "id": "305.5", "slt": "I can test a validation script written in Aiken." }
+      ],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "3001",
+          "name": "Lesson 1",
+          "video": ""
+        },
+        {
+          "slug": "3002",
+          "name": "Lesson 2",
+          "video": ""
+        },
+        {
+          "slug": "3003",
+          "name": "Lesson 3",
+          "video": ""
+        },
+        {
+          "slug": "3004",
+          "name": "Lesson 4",
+          "video": ""
+        },
+        {
+          "slug": "3005",
+          "name": "Lesson 5",
+          "video": ""
+        }
+      ]
+    },
+    {
+      "number": 401,
+      "title": "Introducing Gimbal Project Treasury and Escrow",
+      "releaseDate": "2023-05-15",
+      "updatedDate": "2023-05-15",
+      "slts": [],
+      "lessons":[
+        {
+          "slug": "slts",
+          "name": "Student Learning Targets",
+          "video": ""
+        },
+        {
+          "slug": "4001",
+          "name": "Lesson 1",
+          "video": ""
+        }
+      ]
+    }
+  ]
+}
